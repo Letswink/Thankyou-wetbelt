@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Your Wet Belt Quote</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 2rem;
+      max-width: 600px;
+      margin: auto;
+      background-color: #f9f9f9;
+    }
+    h1 {
+      color: #0e2b4c;
+    }
+    .info {
+      font-size: 1.2rem;
+      margin-top: 1rem;
+    }
+    .button {
+      display: inline-block;
+      margin-top: 2rem;
+      padding: 1rem 2rem;
+      background-color: #0073e6;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 8px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Hello <span id="firstname">Friend</span>,</h1>
+  <p class="info">Thanks for requesting a quote for your vehicle:</p>
+  <p class="info"><strong><span id="fuel"></span> <span id="make"></span> <span id="model"></span></strong> (Reg: <span id="reg"></span>)</p>
+
+  <p class="info">Here’s your instant Wet Belt Replacement quote: <strong>£1246</strong>.</p>
+
+  <p class="info">Let’s get you booked in — pick your preferred date and time:</p>
+
+  <a class="button" href="https://calendly.com/wetbeltmobile-info/wet-belt-replacement?back=1&month=2025-08" target="_blank">Book Now on Calendly</a>
+
+  <script>
+    function getParam(name) {
+      return new URLSearchParams(window.location.search).get(name) || "";
+    }
+
+    document.addEventListener("DOMContentLoaded", function() {
+      document.getElementById("firstname").textContent = getParam("firstname");
+      document.getElementById("reg").textContent = getParam("reg");
+      document.getElementById("make").textContent = getParam("make");
+      document.getElementById("model").textContent = getParam("model");
+      document.getElementById("fuel").textContent = getParam("fuel");
+    });
+  </script>
+</body>
+</html>

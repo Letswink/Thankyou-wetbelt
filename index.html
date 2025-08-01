@@ -44,13 +44,28 @@
             font-weight: bold;
             text-decoration: underline;
         }
+        .btn {
+            display: inline-block;
+            background-color: #4CAF50;
+            color: white;
+            font-weight: bold;
+            padding: 14px 28px;
+            font-size: 16px;
+            border: none;
+            border-radius: 8px;
+            text-decoration: none;
+            margin: 20px 0;
+            transition: background-color 0.3s ease;
+        }
+        .btn:hover {
+            background-color: #45a049;
+        }
     </style>
 </head>
 <body>
     <h1>Hello {first_name}</h1>
     <h2>Here’s Your Instant Wet Belt Replacement Quote for your {fuel}, {make}, {model}, Reg No: {city}</h2>
     <div class="price">£1246</div>
-
 
     <p><b>
         We come to you — at home or at work — and take care of everything,<br>
@@ -59,8 +74,9 @@
         we’ll handle the rest.
     </b></p>
 
+    <!-- Green Button -->
     <p>
-        <a href="https://calendly.com/wetbeltmobile-info/wet-belt-replacement?back=1&month=2025-08" target="_blank">Check Availability</a><br>
+        <a href="https://calendly.com/wetbeltmobile-info/wet-belt-replacement?back=1&month=2025-08" target="_blank" class="btn">Check Availability</a><br>
         Contact Us: 07352 312788
     </p>
 

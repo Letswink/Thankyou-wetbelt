@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Redirecting...</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      background-color: #3399ff;
+      color: white;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding-top: 100px;
+    }
+    .spinner {
+      margin-top: 20px;
+      font-size: 1.2em;
+    }
+  </style>
+  <script>
+    // Wait 1.5 seconds before redirecting
+    setTimeout(() => {
+      // Replace this with your Make webhook URL
+      const makeURL = "https://hook.eu2.make.com/icammfdjkkw4qgl3w28ju04g815i8cxz";
+
+      // Collect parameters from URL
+      const params = new URLSearchParams(window.location.search);
+      const first = params.get("first_name");
+      const reg = params.get("reg");
+
+      // Call the Make webhook
+      fetch(makeURL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          first_name: first,
+          city: reg
+        })
+      });
+
+      // After sending, redirect to final Netlify quote page
+      window.location.href = `https://rainbow-cassata-236f2c.netlify.app/?firstname=${first}&reg=${reg}`;
+    }, 1500);
+  </script>
+</head>
+<body>
+  <h1>Thanks! Generating your quote...</h1>
+  <div class="spinner">Hang tight — almost there!</div>
+</body>
+</html>

@@ -1,50 +1,44 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>Redirecting...</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script>
+    // Function to extract query parameters
+    function getParams() {
+      const params = new URLSearchParams(window.location.search);
+      return {
+        fuel: params.get("fuel") || "",
+        make: params.get("make") || "",
+        model: params.get("model") || "",
+        city: params.get("city") || "",
+        first_name: params.get("first_name") || ""
+      };
+    }
+
+    // Build and redirect
+    window.onload = function () {
+      const data = getParams();
+      const query = new URLSearchParams(data).toString();
+      const target = "index.html?" + query;
+
+      setTimeout(() => {
+        window.location.href = target;
+      }, 1500); // 1.5 second delay
+    };
+  </script>
   <style>
     body {
-      background-color: #3399ff;
+      background-color: #007aff;
       color: white;
       font-family: Arial, sans-serif;
       text-align: center;
       padding-top: 100px;
-    }
-    .spinner {
-      margin-top: 20px;
-      font-size: 1.2em;
+      font-size: 1.5em;
     }
   </style>
-  <script>
-    // Wait 1.5 seconds before redirecting
-    setTimeout(() => {
-      // Replace this with your Make webhook URL
-      const makeURL = "https://hook.eu2.make.com/icammfdjkkw4qgl3w28ju04g815i8cxz";
-
-      // Collect parameters from URL
-      const params = new URLSearchParams(window.location.search);
-      const first = params.get("first_name");
-      const reg = params.get("reg");
-
-      // Call the Make webhook
-      fetch(makeURL, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          first_name: first,
-          city: reg
-        })
-      });
-
-      // After sending, redirect to final Netlify quote page
-      window.location.href = `https://rainbow-cassata-236f2c.netlify.app/?firstname=${first}&reg=${reg}`;
-    }, 1500);
-  </script>
 </head>
 <body>
-  <h1>Thanks! Generating your quote...</h1>
-  <div class="spinner">Hang tight — almost there!</div>
+  <p>Generating your quote, thank you for waiting...</p>
 </body>
 </html>

@@ -1,100 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Thank You - Wet Belt Mobile</title>
-    <meta name="description" content="Your instant quote for mobile timing belt replacement – we come to you! Book with Wet Belt Mobile today.">
-    <style>
-        body {
-            background-color: #3399ff;
-            color: white;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            text-align: center;
-            padding: 30px;
-        }
-        h1 {
-            font-size: 2.5em;
-            font-weight: 700;
-        }
-        h2 {
-            font-size: 1.5em;
-            margin: 10px 0;
-        }
-        .price {
-            font-size: 3em;
-            font-weight: bold;
-            margin: 20px 0;
-        }
-        .mission {
-            margin-top: 40px;
-            text-align: left;
-            max-width: 900px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        .mission img {
-            float: right;
-            width: 250px;
-            border-radius: 10px;
-            margin-left: 30px;
-        }
-        a {
-            color: white;
-            font-weight: bold;
-            text-decoration: underline;
-        }
-        .btn {
-            display: inline-block;
-            background-color: #4CAF50;
-            color: white;
-            font-weight: bold;
-            padding: 14px 28px;
-            font-size: 16px;
-            border: none;
-            border-radius: 8px;
-            text-decoration: none;
-            margin: 20px 0;
-            transition: background-color 0.3s ease;
-        }
-        .btn:hover {
-            background-color: #45a049;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <title>Wet Belt Mobile - Thank You</title>
+  <style>
+    body {
+      background-color: #3399ff;
+      color: white;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 40px;
+    }
+    .button {
+      background-color: #4CAF50;
+      color: white;
+      padding: 15px 25px;
+      margin: 20px auto;
+      border: none;
+      border-radius: 5px;
+      font-size: 18px;
+      text-decoration: none;
+      display: inline-block;
+    }
+    .profile {
+      margin-top: 40px;
+    }
+    .profile img {
+      border-radius: 20px;
+      width: 200px;
+    }
+  </style>
 </head>
 <body>
-    <h1>Hello {first_name}</h1>
-    <h2>Here’s Your Instant Wet Belt Replacement Quote for your {fuel}, {make}, {model}, Reg No: {city}</h2>
-    <div class="price">£1246</div>
 
-    <p><b>
-        We come to you — at home or at work — and take care of everything,<br>
-        so you can stay on the road without missing a beat.<br>
-        You’ll be able to choose a time that works best for you,<br>
-        we’ll handle the rest.
-    </b></p>
+  <h1>Hello <span id="first_name">{first_name}</span></h1>
+  <h2>
+    Here’s Your Instant Wet Belt Replacement Quote for your 
+    <span id="fuel">{fuel}</span>, 
+    <span id="make">{make}</span>, 
+    <span id="model">{model}</span>, 
+    Reg No: <span id="city">{city}</span>
+  </h2>
+  <h1>£1246</h1>
 
-    <!-- Green Button -->
-    <p>
-        <a href="https://calendly.com/wetbeltmobile-info/wet-belt-replacement?back=1&month=2025-08" target="_blank" class="btn">Check Availability</a><br>
-        Contact Us: 07352 312788
-    </p>
+  <p>
+    We come to you — at home or at work — and take care of everything,<br>
+    so you can stay on the road without missing a beat.<br>
+    You’ll be able to choose a time that works best for you,<br>
+    we’ll handle the rest.
+  </p>
 
-    <div class="mission">
-        <img 
-        src="./kevin-profile.png" alt="Kevin - Wet Belt Specialist" loading="lazy" width="200"
-        >
-        <h2>Our Mission at Wet Belt Mobile UK</h2>
-        <p>
-            We’re here to keep hard-working van owners on the road — without the hassle.
-            That’s why we bring our timing belt replacement service directly to you, wherever you are.
-        </p>
-        <p>
-            We believe your time is valuable, your van is essential, and great customer service should be the norm — not a bonus.
-            From first click to final check, we’re committed to delivering honest pricing, reliable workmanship,
-            and convenience that fits your life.
-        </p>
-        <p><strong>Wet Belt Mobile – built around you.</strong></p>
-    </div>
+  <a href="https://calendly.com/wetbeltmobile-info/wet-belt-replacement" class="button">Check Availability</a>
+
+  <p>Contact Us: 07352 312788</p>
+
+  <div class="profile">
+    <img src="FB%20Profile%20Pic.png" alt="Kevin">
+    <p>Kevin<br>Wet Belt Specialist</p>
+  </div>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    document.getElementById("first_name").textContent = params.get("first_name") || "";
+    document.getElementById("fuel").textContent = params.get("fuel") || "";
+    document.getElementById("make").textContent = params.get("make") || "";
+    document.getElementById("model").textContent = params.get("model") || "";
+    document.getElementById("city").textContent = params.get("city") || "";
+  </script>
+
 </body>
 </html>
